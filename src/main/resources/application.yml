@@ -1,0 +1,28 @@
+server:
+  port: 9001
+  tomcat:
+    threads:
+      max: 50
+      min-spare: 5
+    keep-alive-timeout: 15s
+    connection-timeout: 2s
+spring:
+  application:
+    name: book-service
+  datasource:
+    username: user
+    password: password
+    url: jdbc:postgresql://localhost:5432/book_db
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-components: always
+      show-details: always
